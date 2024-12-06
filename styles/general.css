@@ -1,0 +1,189 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color:  #070D0B;
+    position: relative;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#seleccionCampeon{
+    height: 100%;
+}
+.campeon_seleccionado{
+    display: flex;
+    align-items: start;
+    gap: 80px;
+}
+
+/* HUD de estadisticas de campeón seleccionado */
+
+.estadisticas{
+    align-items: end;
+    display: flex;
+    width: 40%;
+    height: 100vh;
+}
+
+.estadisticas .cuadros, .estadisticas .vida-mana, .estadisticas .campeon-img{
+    margin-right: -10px;
+}
+.estadisticas div span{
+    color: #BB9F6B;
+}
+
+.campeon-img{
+    display: flex;       
+    height: 100px;
+    width: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    z-index: 1;
+    border-image: 7px solid #5D471D;
+    background:linear-gradient(45deg, #c8aa6d, #7a5c29) ;
+    border-radius: 100%;
+    overflow: hidden; 
+}
+
+.campeon-img img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.cuadros{
+    display: flex;
+    flex-direction: column;
+    background-color: #19272A;
+    padding: 10px;
+    border: 2px solid #5D471D;
+    stroke-width: 1px;
+    stroke: #5D471D;
+    border: 1px #5D471D solid;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.top-stats, .bottom-stats{
+    display: flex;
+    gap: 20px;
+    padding: 8px 16px 8px 8px;
+}
+
+.bottom-stats .right, .bottom-stats .left, .top-stats .right, .top-stats .left{
+    background-color: #19272A;
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+}
+.bottom-stats .right div, .bottom-stats .left div, .top-stats .right div, .top-stats .left div{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.vida, .mana{
+    height: 24px;
+    width: 100%;
+    padding: 0 20px;
+}
+.vida{background-color: green;}
+.mana{background-color:blue;}
+
+.vida-mana .vida span, .vida-mana .mana span{
+    color: white;
+}
+
+.vida-mana {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 100%;
+}
+
+/* Inventario */
+.inventario{
+    background-color: #19272A;
+    padding: 10px;
+    border: 2px solid #5D471D;
+    stroke-width: 1px;
+    stroke: #5D471D;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.items{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;  
+}
+
+.item{
+    height: 40px;
+    width: 40px;
+    border: 1px #5D471D solid;
+    background-color: #070D0B;
+    background-size: contain;
+}
+.oro{
+    display: flex;
+    gap: 8px;
+    height: 24px;
+    align-items: center;
+
+    font-family: 'Marcellus SC', serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 5px 15px; 
+    background: #1e2328;
+    color: #cdbe91;
+    box-shadow: inset 0 0 2px #000000;
+    border-width: 2px; 
+    border-style: solid;      
+    border-image: linear-gradient(to bottom, #c8aa6d, #7a5c29) 1; /* Degradado */  
+}
+.oro img{
+    object-fit:scale-down;
+}
+
+
+/* Tienda */
+
+#tienda{
+    position: absolute;
+    top:20%;
+    background-color: white;
+    align-self: center;
+    width: 60%;
+    padding: 10px;
+    border: 2px solid #5D471D;
+    background-color: #19272A;
+    stroke-width: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-img{
+    width: 48px;
+}
+
+.campeon_seleccionado{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: end;
+}
+
+
