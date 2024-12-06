@@ -70,7 +70,7 @@ const campeones = [
     },
     {nombre: "Karthus",
         video: "PENDIENTE",
-        image: "./assets/dr.mundo-profile.png",
+        image: "./assets/karthus-profile.png",
         id: 2,
         vida: 630,
         regeneracion_vida: 7,
@@ -484,6 +484,17 @@ let itemsTienda= [
     }
 ]
 
+const obtenerTienda = (items)=>{
+    const tienda = [
+        {tipo: "Ward",
+        items: items.filter(item => item.tipo === "ward")
+        },
+        {tipo: "Normales",
+        items: items.filter(item => item.tipo === "normal")
+        }
+    ]
+    return tienda
+}
 
 
 const tienda = document.getElementById('tienda');
@@ -492,25 +503,21 @@ const itemsSection = document.getElementById('itemsNormales');
 tienda.style.display = 'none';
 const renderizarTiendaHTML = (items) => {
 
-
-
-
-
-
-
-    let itemsTiendaHTML = "";  // Variable para acumular todas las filas
-    for (const item of items) {
-        itemsTiendaHTML += `
-                    ${ item.tipo === "ward" ?
-                        wardSection.innerHTML =
-                        `<img class="item-img" src="${item.url}"  ondblclick="agregarAlInventario(${item.id})">`
-                        : itemsSection.innerHTML =
-                        ` <h2>wards</h2><img class="item-img"p src="${item.url}"  ondblclick="agregarAlInventario(${item.id})">`
-                    }
+    const tiendaOrganizada = obtenerTienda(items)
+    let categoriasTiendaHTML = ""
+    for (let tipoItem of tiendaOrganizada) {
+        categoriasTiendaHTML += `
+        <div class="categoria">
+            <h2>${tipoItem.tipo}</h2>
+            ${tipoItem.items.map(item => `
+                <img class="item-img" src="${item.url}"  ondblclick="agregarAlInventario(${item.id})">
+            `).join('')}
+        </div>
         `
     }
-    // Insertamos la tabla completa con las filas acumuladas
-    tienda.innerHTML = `${itemsTiendaHTML}`
+
+    tienda.innerHTML = `${categoriasTiendaHTML}`
+
 };
 
 document.addEventListener('keydown', function(event) {
